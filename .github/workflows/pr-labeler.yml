@@ -1,0 +1,21 @@
+name: Pull Request Labeling
+
+on:
+  - pull_request
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v3
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+
+  size-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: size-label
+        uses: "dogmatic69/size-label-action@master"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          IGNORED: ".*\n!.gitignore\nyarn.lock\ngenerated/**"
