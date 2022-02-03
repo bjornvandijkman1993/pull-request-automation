@@ -1,0 +1,20 @@
+ci/cd:
+  - .github/workflows/*
+
+infrastructure:
+  - terraform/**
+
+documentation:
+  - README.md
+  - ./*.md
+
+orchestration:
+  - airflow/**
+
+transformations:
+  - dbt/**
+
+data-quality:
+  - soda/**
+  - great-expectations/**
+  - great-expectations-documentation/**
