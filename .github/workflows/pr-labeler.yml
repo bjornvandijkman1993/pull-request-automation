@@ -15,7 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: size-label
-        uses: "dogmatic69/size-label-action@master"
+        uses: "pascalgn/size-label-action@v0.4.3"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          IGNORED: ".*\n!.gitignore\nyarn.lock\ngenerated/**"
+        with:
+          sizes: >
+            {
+              "0": "XS",
+              "20": "S",
+              "50": "M",
+              "250": "Too Large"
+            }
